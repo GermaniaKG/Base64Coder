@@ -65,8 +65,15 @@ catch (DecodingException $e) {
 
 ```
 
+##Exceptions
 
+```php
+<?php
+use Germania\Base64Coder\Exceptions\CoderExceptionInterface;
 
+class EncodingException implements CoderExceptionInterface {}
+class DecodingException implements CoderExceptionInterface {}
+```
 
 
 
