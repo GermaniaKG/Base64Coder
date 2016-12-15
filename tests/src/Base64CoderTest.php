@@ -11,6 +11,7 @@ class Base64CoderTest extends \PHPUnit_Framework_TestCase
     public $logger;
     public $generator;
 
+    public $max_runs = 50;
 
     public function setUp()
     {
@@ -46,49 +47,48 @@ class Base64CoderTest extends \PHPUnit_Framework_TestCase
         $factory = new \RandomLib\Factory;
         $generator = $factory->getMediumStrengthGenerator();
 
-        $max = 50;
 
         $data = array(
             array( "::", "foo", "bar")
         );
 
         $rndint = function() use ($generator){
-            return $generator->generateInt(12, 64);
+            return $generator->generateInt(12, 128);
         };
 
-        for ($i = 0; $i < $max; $i++) {
+        for ($i = 0; $i < $this->max_runs; $i++) {
             $s = $generator->generateString( $rndint() );
             $t = $generator->generate($rndint() );
-
-            $data[] = array('::', $s, $t);
+            $sep = $generator->generateString( $rndint() );
+            $data[] = array( $sep, $s, $t);
         }
 
-        for ($i = 0; $i < $max; $i++) {
+        for ($i = 0; $i < $this->max_runs; $i++) {
             $s = $generator->generate( $rndint() );
             $t = $generator->generateString( $rndint() );
-
-            $data[] = array('::', $s, $t);
+            $sep = $generator->generateString( $rndint() );
+            $data[] = array( $sep, $s, $t);
         }
 
-        for ($i = 0; $i < $max; $i++) {
+        for ($i = 0; $i < $this->max_runs; $i++) {
             $s = $generator->generateString( $rndint() );
             $t = $generator->generateString( $rndint() );
-
-            $data[] = array('::', $s, $t);
+            $sep = $generator->generateString( $rndint() );
+            $data[] = array( $sep, $s, $t);
         }
 
-        for ($i = 0; $i < $max; $i++) {
+        for ($i = 0; $i < $this->max_runs; $i++) {
             $s = $generator->generate( $rndint() );
             $t = $generator->generate( $rndint() );
-
-            $data[] = array('::', $s, $t);
+            $sep = $generator->generateString( $rndint() );
+            $data[] = array( $sep, $s, $t);
         }
 
-        for ($i = 0; $i < $max; $i++) {
+        for ($i = 0; $i < $this->max_runs; $i++) {
             $s = random_bytes( $rndint() );
             $t = random_bytes( $rndint() );
-
-            $data[] = array('::', $s, $t);
+            $sep = $generator->generateString( $rndint() );
+            $data[] = array( $sep, $s, $t);
         }
 
         return $data;
