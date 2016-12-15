@@ -41,10 +41,10 @@ class Base64Coder implements CoderInterface
      */
     public function encode( $selector, $token )
     {
-        $result = base64_encode(implode( $this->separator, [
-            $selector,
-            $token
-        ]));
+        $result = implode( $this->separator, [
+            base64_encode($selector),
+            base64_encode($token)
+        ]);
 
         if ($result === false):
             $e_msg = "Could not base64_encode selector and token";
@@ -73,37 +73,33 @@ class Base64Coder implements CoderInterface
 
 
         // ----------------------------------------------
-        // 2. Begin parsing
-        // ----------------------------------------------
-        $decoded = base64_decode($base64_encoded, "strict");
-        if ($decoded === false) {
-            $e_msg = "Could not base64_decode data";
-            $this->logger->warning( $e_msg );
-            throw new DecodingException( $e_msg );
-        }
-
-
-        // ----------------------------------------------
-        // 3. Parse out Persistent Login Selector
+        // 2. Parse out Persistent Login Selector
         //    (i.e. all from beginning to first occurrence of separator)
         // ----------------------------------------------
 
-        $result->selector = mb_strstr($decoded, $this->separator, "before_needle");
+        $base64_encoded_selector = mb_strstr($base64_encoded, $this->separator, "before_needle");
+        $result->selector = base64_decode( $base64_encoded_selector, "strict" );
         if ($result->selector === false) :
-            $e_msg = "Could not find separator in decoded value";
+            $e_msg = "Could not find separator in base64-encoded string";
             $this->logger->warning( $e_msg );
             throw new DecodingException( $e_msg );
         endif;
 
 
         // ----------------------------------------------
-        // 4. Parse out Persistent Login Token
+        // 3. Parse out Persistent Login Token
         //    (i.e. everything after first occurrence of separator)
         // ----------------------------------------------
-        $token_incl_sep = mb_strstr($decoded, $this->separator, false);
+        $token_incl_sep = mb_strstr($base64_encoded, $this->separator, false);
         $separator_len  = mb_strlen( $this->separator );
-        $result->token  = mb_substr($token_incl_sep, $separator_len);
 
+        $base64_encoded_token = mb_substr($token_incl_sep, $separator_len);
+        $result->token  = base64_decode( $base64_encoded_token, "strict" );
+        if ($result->token === false) :
+            $e_msg = "Could not find token in base64-encoded string";
+            $this->logger->warning( $e_msg );
+            throw new DecodingException( $e_msg );
+        endif;
 
         $this->logger->debug("Decoded data", [
             'selector'     => $result->selector,
