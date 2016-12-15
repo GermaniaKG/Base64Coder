@@ -1,6 +1,9 @@
 #Germania\Base64Coder
 
-This class converts a *selector* and *token* pair to base64 forth and back.
+This class converts a *selector* and *token* pair to base64 forth and back. It is tested with these common random libraries:
+
+- Anthony Ferrara's [ircmaxell/RandomLib](https://github.com/ircmaxell/RandomLib)
+- Paragonie's [paragonie/random_compat](https://github.com/paragonie/random_compat)
 
 ##Installation
 
@@ -80,7 +83,8 @@ class DecodingException implements CoderExceptionInterface {}
 ##Development and Testing
 
 Develop using `develop` branch, using [Git Flow](https://github.com/nvie/gitflow).   
-**Currently, no tests are specified.**
+
+See class `tests\Base64CoderTest` for random generated selectors, tokens, and separators.
 
 ```bash
 $ git clone git@github.com:GermaniaKG/Base64Coder.git base64-coder
