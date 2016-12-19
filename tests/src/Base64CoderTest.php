@@ -4,6 +4,7 @@ namespace tests;
 use Germania\Base64Coder\Base64Coder;
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
+use RandomLib\Factory as RandomLibFactory;
 
 class Base64CoderTest extends \PHPUnit_Framework_TestCase
 {
@@ -44,7 +45,7 @@ class Base64CoderTest extends \PHPUnit_Framework_TestCase
     public function provideWorkData()
     {
 
-        $factory = new \RandomLib\Factory;
+        $factory = new RandomLibFactory;
         $generator = $factory->getMediumStrengthGenerator();
 
 
