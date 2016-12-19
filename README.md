@@ -1,5 +1,8 @@
 #Germania\Base64Coder
 
+[![Build Status](https://travis-ci.org/GermaniaKG/Base64Coder.svg?branch=master)](https://travis-ci.org/GermaniaKG/Base64Coder)
+
+
 This class converts a *selector* and *token* pair to base64 forth and back. It is tested with these common random libraries:
 
 - Anthony Ferrara's [ircmaxell/RandomLib](https://github.com/ircmaxell/RandomLib)
