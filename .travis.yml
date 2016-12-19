@@ -9,7 +9,7 @@ env:
 
 before_script:
   - cp phpunit.xml.dist phpunit.xml
-  - composer install --no-interaction
+  - composer update --no-interaction
 
 script:
   - phpunit
