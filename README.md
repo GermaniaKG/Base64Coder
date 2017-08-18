@@ -1,4 +1,4 @@
-#Germania\Base64Coder
+# Germania\Base64Coder
 
 [![Build Status](https://travis-ci.org/GermaniaKG/Base64Coder.svg?branch=master)](https://travis-ci.org/GermaniaKG/Base64Coder)
 [![Code Coverage](https://scrutinizer-ci.com/g/GermaniaKG/Base64Coder/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/GermaniaKG/Base64Coder/?branch=master)
@@ -9,17 +9,17 @@ This class converts a *selector* and *token* pair to base64 forth and back. It i
 - Anthony Ferrara's [ircmaxell/RandomLib](https://github.com/ircmaxell/RandomLib)
 - Paragonie's [paragonie/random_compat](https://github.com/paragonie/random_compat)
 
-##Installation
+## Installation
 
 ```bash
 composer require germania-kg/base64-coder
 ```
 
 
-##Usage
+## Usage
 
 
-###Instantiation
+### Instantiation
 ```php
 <?php
 use Germania\Base64Coder\Base64Coder;
@@ -37,7 +37,7 @@ $coder = new Base64Coder;
 ```
 
 
-###Encoding selector and token
+### Encoding selector and token
 ```php
 <?php
 $selector = "user_john";
@@ -53,7 +53,7 @@ catch (EncodingException $e) {
 }
 ```
 
-###Decoding encoded selector and token pair
+### Decoding encoded selector and token pair
 
 ```php
 <?php
@@ -72,7 +72,7 @@ catch (DecodingException $e) {
 
 ```
 
-##Exceptions
+## Exceptions
 
 ```php
 <?php
@@ -82,9 +82,35 @@ class EncodingException implements CoderExceptionInterface {}
 class DecodingException implements CoderExceptionInterface {}
 ```
 
+## Pimple Service Provider
+
+```php
+<?php
+use Germania\Base64Coder\Providers\PimpleServiceProvider;
+use Psr\Log\LoggerInterface;
+
+// have your Pimple DIC ready, and optionally a PSR3 Logger:
+$sp = new PimpleServiceProvider;
+$custom_separator = "::";
+$sp = new PimpleServiceProvider($separator, $psr3_logger);
+
+$sp->register( $dic );
+
+// Grab your services;
+// See also above examaples.
+$encoder = $dic['Cookie.Encryptor'];
+$encoded = $encoder("selector", "token");
+
+$decoder = $dic['Cookie.Decryptor'];
+$decoded = $decoder( $encoded );
+echo $decoded->selector;
+echo $decoded->token;
+
+```
 
 
-##Development and Testing
+
+## Development and Testing
 
 Develop using `develop` branch, using [Git Flow](https://github.com/nvie/gitflow).   
 
