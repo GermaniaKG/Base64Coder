@@ -82,6 +82,32 @@ class EncodingException implements CoderExceptionInterface {}
 class DecodingException implements CoderExceptionInterface {}
 ```
 
+## Pimple Service Provider
+
+```php
+<?php
+use Germania\Base64Coder\Providers\PimpleServiceProvider;
+use Psr\Log\LoggerInterface;
+
+// have your Pimple DIC ready, and optionally a PSR3 Logger:
+$sp = new PimpleServiceProvider;
+$custom_separator = "::";
+$sp = new PimpleServiceProvider($separator, $psr3_logger);
+
+$sp->register( $dic );
+
+// Grab your services;
+// See also above examaples.
+$encoder = $dic['Cookie.Encryptor'];
+$encoded = $encoder("selector", "token");
+
+$decoder = $dic['Cookie.Decryptor'];
+$decoded = $decoder( $encoded );
+echo $decoded->selector;
+echo $decoded->token;
+
+```
+
 
 
 ## Development and Testing
