@@ -5,7 +5,6 @@ use Germania\Base64Coder\Providers\PimpleServiceProvider;
 
 use Pimple\ServiceProviderInterface;
 use Pimple\Container;
-use Psr\Log\NullLogger;
 use Psr\Log\LoggerInterface;
 
 class PimpleServiceProviderTest extends \PHPUnit_Framework_TestCase
@@ -34,7 +33,6 @@ class PimpleServiceProviderTest extends \PHPUnit_Framework_TestCase
         $logger = $this->prophesize( LoggerInterface::class );
 
         return [
-            [ '::', new NullLogger ],
             [ null, null ],
             [ null, $logger->reveal() ]
         ];
