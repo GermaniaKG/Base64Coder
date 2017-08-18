@@ -1,5 +1,5 @@
 <?php
-namespace Germania\Base64Coder\Providers\PimpleServiceProvider;
+namespace Germania\Base64Coder\Providers;
 
 use Pimple\Container;
 use Pimple\ServiceProviderInterface;
@@ -9,7 +9,7 @@ use Germania\Base64Coder\Base64Coder;
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
 
-class Cookies implements ServiceProviderInterface
+class PimpleServiceProvider implements ServiceProviderInterface
 {
     /**
      * @var string
