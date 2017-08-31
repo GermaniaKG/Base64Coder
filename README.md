@@ -106,17 +106,25 @@ echo $decoded->token;
 
 ```
 
+## Issues
 
+See [issues list.][i0]
 
-## Development and Testing
+[i0]: https://github.com/GermaniaKG/Base64Coder/issues 
 
-Develop using `develop` branch, using [Git Flow](https://github.com/nvie/gitflow).   
-
-See class `tests\Base64CoderTest` for random generated selectors, tokens, and separators.
+## Development
 
 ```bash
 $ git clone git@github.com:GermaniaKG/Base64Coder.git base64-coder
 $ cd base64-coder
-$ cp phpunit.xml.dist phpunit.xml
-$ phpunit
+$ composer install
+```
+
+## Unit tests
+
+Either copy `phpunit.xml.dist` to `phpunit.xml` and adapt to your needs, or leave as is. 
+Run [PhpUnit](https://phpunit.de/) like this:
+
+```bash
+$ vendor/bin/phpunit
 ```
