@@ -1,13 +1,11 @@
-# Germania\Base64Coder
+# Germania KG · Base64Coder
+
+**Converts a *selector* and *token* pair to base64 forth and back. It is tested with Anthony Ferrara's [ircmaxell/RandomLib](https://github.com/ircmaxell/RandomLib) and Paragonie's [paragonie/random_compat](https://github.com/paragonie/random_compat)**
 
 [![Build Status](https://travis-ci.org/GermaniaKG/Base64Coder.svg?branch=master)](https://travis-ci.org/GermaniaKG/Base64Coder)
 [![Code Coverage](https://scrutinizer-ci.com/g/GermaniaKG/Base64Coder/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/GermaniaKG/Base64Coder/?branch=master)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/GermaniaKG/Base64Coder/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/GermaniaKG/Base64Coder/?branch=master)
-
-This class converts a *selector* and *token* pair to base64 forth and back. It is tested with these common random libraries:
-
-- Anthony Ferrara's [ircmaxell/RandomLib](https://github.com/ircmaxell/RandomLib)
-- Paragonie's [paragonie/random_compat](https://github.com/paragonie/random_compat)
+[![Build Status](https://scrutinizer-ci.com/g/GermaniaKG/Base64Coder/badges/build.png?b=master)](https://scrutinizer-ci.com/g/GermaniaKG/Base64Coder/build-status/master)
 
 ## Installation
 
