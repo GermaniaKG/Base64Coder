@@ -1,5 +1,8 @@
 {
 	"name":        "germania-kg/base64-coder",
+	"description": "Converts a selector and token pair to base64 forth and back.",
+
+	"keywords":    [ "encode", "decode", "base64", "RandomLib", "random_compat"],
 
 	"type":        "library",
 	"license":     "MIT",
