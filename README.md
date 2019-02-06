@@ -2,15 +2,19 @@
 
 **Converts a *selector* and *token* pair to base64 forth and back. It is tested with Anthony Ferrara's [ircmaxell/RandomLib](https://github.com/ircmaxell/RandomLib) and Paragonie's [paragonie/random_compat](https://github.com/paragonie/random_compat)**
 
-[![Build Status](https://travis-ci.org/GermaniaKG/Base64Coder.svg?branch=master)](https://travis-ci.org/GermaniaKG/Base64Coder)
-[![Code Coverage](https://scrutinizer-ci.com/g/GermaniaKG/Base64Coder/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/GermaniaKG/Base64Coder/?branch=master)
+[![Packagist](https://img.shields.io/packagist/v/germania-kg/base64-code.svg?style=flat)](https://packagist.org/packages/germania-kg/base64-code)
+[![PHP version](https://img.shields.io/packagist/php-v/germania-kg/base64-code.svg)](https://packagist.org/packages/germania-kg/base64-code)
+[![Build Status](https://img.shields.io/travis/GermaniaKG/Base64Coder.svg?label=Travis%20CI)](https://travis-ci.org/GermaniaKG/Base64Coder)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/GermaniaKG/Base64Coder/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/GermaniaKG/Base64Coder/?branch=master)
+[![Code Coverage](https://scrutinizer-ci.com/g/GermaniaKG/Base64Coder/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/GermaniaKG/Base64Coder/?branch=master)
 [![Build Status](https://scrutinizer-ci.com/g/GermaniaKG/Base64Coder/badges/build.png?b=master)](https://scrutinizer-ci.com/g/GermaniaKG/Base64Coder/build-status/master)
 
-## Installation
+
+
+## Installation with Composer
 
 ```bash
-composer require germania-kg/base64-coder
+$ composer require germania-kg/base64-code
 ```
 
 
@@ -115,16 +119,18 @@ See [issues list.][i0]
 ## Development
 
 ```bash
-$ git clone git@github.com:GermaniaKG/Base64Coder.git base64-coder
-$ cd base64-coder
+$ git clone https://github.com/GermaniaKG/Base64Coder.git
+$ cd Base64Coder
 $ composer install
 ```
 
 ## Unit tests
 
-Either copy `phpunit.xml.dist` to `phpunit.xml` and adapt to your needs, or leave as is. 
-Run [PhpUnit](https://phpunit.de/) like this:
+Either copy `phpunit.xml.dist` to `phpunit.xml` and adapt to your needs, or leave as is. Run [PhpUnit](https://phpunit.de/) test or composer scripts like this:
 
 ```bash
+$ composer test
+# or
 $ vendor/bin/phpunit
 ```
+
