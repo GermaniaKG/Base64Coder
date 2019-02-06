@@ -6,7 +6,7 @@ use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
 use RandomLib\Factory as RandomLibFactory;
 
-class Base64CoderTest extends \PHPUnit_Framework_TestCase
+class Base64CoderTest extends \PHPUnit\Framework\TestCase
 {
 
     public $logger;

@@ -7,7 +7,7 @@ use Pimple\ServiceProviderInterface;
 use Pimple\Container;
 use Psr\Log\LoggerInterface;
 
-class PimpleServiceProviderTest extends \PHPUnit_Framework_TestCase
+class PimpleServiceProviderTest extends \PHPUnit\Framework\TestCase
 {
 
 
