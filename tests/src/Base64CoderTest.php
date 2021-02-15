@@ -12,9 +12,9 @@ class Base64CoderTest extends \PHPUnit\Framework\TestCase
     public $logger;
     public $generator;
 
-    public $max_runs = 50;
+    public $max_runs = 250;
 
-    public function setUp()
+    public function setUp() : void
     {
         $this->logger = new NullLogger;
 
@@ -24,7 +24,7 @@ class Base64CoderTest extends \PHPUnit\Framework\TestCase
     /**
      * @dataProvider provideWorkData
      */
-    public function testDecoding( $separator, $selector, $token)
+    public function testDecoding( $separator, $selector, $token) : void
     {
         $sut = new Base64Coder( $separator, $this->logger);
 
@@ -34,7 +34,7 @@ class Base64CoderTest extends \PHPUnit\Framework\TestCase
         // and back
         $decoded = $sut->decode( $encoded );
 
-        $this->assertInternalType("object", $decoded);
+        $this->assertIsObject($decoded);
 
         // Decoded values must match the input values!
         $this->assertSame($selector, $decoded->selector);
@@ -42,7 +42,7 @@ class Base64CoderTest extends \PHPUnit\Framework\TestCase
     }
 
 
-    public function provideWorkData()
+    public function provideWorkData() : array
     {
 
         $factory = new RandomLibFactory;
@@ -61,35 +61,7 @@ class Base64CoderTest extends \PHPUnit\Framework\TestCase
             $s = $generator->generateString( $rndint() );
             $t = $generator->generate($rndint() );
             $sep = $generator->generateString( $rndint() );
-            $data[] = array( $sep, $s, $t);
-        }
-
-        for ($i = 0; $i < $this->max_runs; $i++) {
-            $s = $generator->generate( $rndint() );
-            $t = $generator->generateString( $rndint() );
-            $sep = $generator->generateString( $rndint() );
-            $data[] = array( $sep, $s, $t);
-        }
-
-        for ($i = 0; $i < $this->max_runs; $i++) {
-            $s = $generator->generateString( $rndint() );
-            $t = $generator->generateString( $rndint() );
-            $sep = $generator->generateString( $rndint() );
-            $data[] = array( $sep, $s, $t);
-        }
-
-        for ($i = 0; $i < $this->max_runs; $i++) {
-            $s = $generator->generate( $rndint() );
-            $t = $generator->generate( $rndint() );
-            $sep = $generator->generateString( $rndint() );
-            $data[] = array( $sep, $s, $t);
-        }
-
-        for ($i = 0; $i < $this->max_runs; $i++) {
-            $s = random_bytes( $rndint() );
-            $t = random_bytes( $rndint() );
-            $sep = $generator->generateString( $rndint() );
-            $data[] = array( $sep, $s, $t);
+            $data["Rnd string, rnd int, rnd string ($i)"] = array( $sep, $s, $t);
         }
 
         return $data;
