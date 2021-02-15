@@ -5,6 +5,8 @@ use Pimple\Container;
 use Pimple\ServiceProviderInterface;
 
 use Germania\Base64Coder\Base64Coder;
+use Germania\Base64Coder\EncoderCallable;
+use Germania\Base64Coder\DecoderCallable;
 
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
@@ -42,19 +44,45 @@ class PimpleServiceProvider implements ServiceProviderInterface
         /**
          * @return Callable
          */
-        $dic['Cookie.Encryptor'] = $dic->protect(function($selector, $token) {
-            $coder = new Base64Coder( $this->separator, $this->logger);
-            return $coder->encode($selector, $token);
-        });
+        $dic[Base64Coder::class] = function($dic) {
+            return new Base64Coder( $this->separator, $this->logger);
+        };
+
 
 
         /**
          * @return Callable
          */
-        $dic['Cookie.Decryptor'] = $dic->protect(function( $encrypted ) {
-            $coder = new Base64Coder( $this->separator, $this->logger);
-            return $coder->decode( $encrypted);
-        });
+        $dic[EncoderCallable::class] = function($dic) {
+            $coder = $dic[Base64Coder::class];
+            return new EncoderCallable($coder, $this->logger);
+        };
+
+        /**
+         * @return Callable
+         */
+        $dic['Cookie.Encryptor'] = function($dic) {
+            return $dic[EncoderCallable::class];
+        };
+
+
+
+        /**
+         * @return Callable
+         */
+        $dic[DecoderCallable::class] = function($dic) {
+            $coder = $dic[Base64Coder::class];
+            return new DecoderCallable($coder, $this->logger);
+        };
+
+
+        /**
+         * @return Callable
+         */
+        $dic['Cookie.Decryptor'] = function($dic) {
+            return $dic[DecoderCallable::class];
+        };
+
 
 
     }

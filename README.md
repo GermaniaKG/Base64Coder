@@ -89,6 +89,9 @@ class DecodingException implements CoderExceptionInterface {}
 ```php
 <?php
 use Germania\Base64Coder\Providers\PimpleServiceProvider;
+use Germania\Base64Coder\EncoderCallable;
+use Germania\Base64Coder\DecoderCallable;
+use Germania\Base64Coder\Base64Coder;
 use Psr\Log\LoggerInterface;
 
 // have your Pimple DIC ready, and optionally a PSR3 Logger:
@@ -100,13 +103,18 @@ $sp->register( $dic );
 
 // Grab your services;
 // See also above examaples.
-$encoder = $dic['Cookie.Encryptor'];
-$encoded = $encoder("selector", "token");
+$base64coder = $dic[Base64Coder::class];
 
-$decoder = $dic['Cookie.Decryptor'];
-$decoded = $decoder( $encoded );
-echo $decoded->selector;
-echo $decoded->token;
+$encoder = $dic['Cookie.Encryptor']; // Deprecated
+$encoder = $dic[EncoderCallable::class];
+$encoded_string = $encoder("selector", "token");
+
+$decoder = $dic['Cookie.Decryptor']; // Deprecated
+$decoder = $dic[DecoderCallable::class];
+$decoded_obj = $decoder( $encoded_string );
+
+echo $decoded_obj->selector;
+echo $decoded_obj->token;
 
 ```
 
@@ -114,7 +122,7 @@ echo $decoded->token;
 
 See [issues list.][i0]
 
-[i0]: https://github.com/GermaniaKG/Base64Coder/issues 
+[i0]: https://github.com/GermaniaKG/Base64Coder/issues
 
 ## Development
 
@@ -133,4 +141,5 @@ $ composer test
 # or
 $ vendor/bin/phpunit
 ```
+
 
