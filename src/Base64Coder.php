@@ -4,21 +4,19 @@ namespace Germania\Base64Coder;
 use Germania\Base64Coder\Exceptions\DecodingException;
 use Germania\Base64Coder\Exceptions\EncodingException;
 use Psr\Log\LoggerInterface;
+use Psr\Log\LoggerAwareTrait;
+use Psr\Log\LoggerAwareInterface;
 use Psr\Log\NullLogger;
 
 
 class Base64Coder implements CoderInterface
 {
+    use LoggerAwareTrait;
+
     /**
      * @var string
      */
     public $separator = "::";
-
-    /**
-     * @var LoggerInterface
-     */
-    public $logger;
-
 
     /**
      * @param string               $separator Separator sign, defaults to `::`
@@ -27,7 +25,7 @@ class Base64Coder implements CoderInterface
     public function __construct( $separator = null, LoggerInterface $logger = null )
     {
         $this->separator = $separator ?: $this->separator;
-        $this->logger    = $logger ?: new NullLogger;
+        $this->setLogger($logger ?: new NullLogger);
     }
 
 
