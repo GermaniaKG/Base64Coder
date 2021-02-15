@@ -14,7 +14,7 @@ class PimpleServiceProviderTest extends \PHPUnit\Framework\TestCase
     /**
      * @dataProvider provideCtorArguments
      */
-    public function testRegisteringServiceProvider( $separator, $logger)
+    public function testRegisteringServiceProvider( $separator, $logger) : void
     {
         $dic = new Container;
 
@@ -28,7 +28,7 @@ class PimpleServiceProviderTest extends \PHPUnit\Framework\TestCase
 
     }
 
-    public function provideCtorArguments()
+    public function provideCtorArguments() : array
     {
         $logger = $this->prophesize( LoggerInterface::class );
 
