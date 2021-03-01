@@ -14,7 +14,7 @@ abstract class CallableCoderAbstract implements LoggerAwareInterface {
      */
     public $coder;
 
-    public function __constructor( CoderInterface $coder, LoggerInterface $logger )
+    public function __construct( CoderInterface $coder, LoggerInterface $logger )
     {
         $this->coder = $coder;
         $this->setLogger($logger);

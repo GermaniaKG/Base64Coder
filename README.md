@@ -1,6 +1,6 @@
 # Germania KG · Base64Coder
 
-**Converts a *selector* and *token* pair to base64 forth and back. It is tested with Anthony Ferrara's [ircmaxell/RandomLib](https://github.com/ircmaxell/RandomLib) and Paragonie's [paragonie/random_compat](https://github.com/paragonie/random_compat)**
+**Converts a *selector* and *token* pair to base64 forth and back.**
 
 [![Packagist](https://img.shields.io/packagist/v/germania-kg/base64-code.svg?style=flat)](https://packagist.org/packages/germania-kg/base64-code)
 [![PHP version](https://img.shields.io/packagist/php-v/germania-kg/base64-code.svg)](https://packagist.org/packages/germania-kg/base64-code)
