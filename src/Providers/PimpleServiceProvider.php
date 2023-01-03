@@ -34,9 +34,6 @@ class PimpleServiceProvider implements ServiceProviderInterface
         $this->logger    = $logger ?: new NullLogger;
     }
 
-    /**
-     * @implements \Pimple\ServiceProviderInterface
-     */
     public function register(Container $dic)
     {
 
