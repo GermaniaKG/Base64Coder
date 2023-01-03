@@ -4,11 +4,7 @@
 
 [![Packagist](https://img.shields.io/packagist/v/germania-kg/base64-code.svg?style=flat)](https://packagist.org/packages/germania-kg/base64-code)
 [![PHP version](https://img.shields.io/packagist/php-v/germania-kg/base64-code.svg)](https://packagist.org/packages/germania-kg/base64-code)
-[![Build Status](https://img.shields.io/travis/GermaniaKG/Base64Coder.svg?label=Travis%20CI)](https://travis-ci.org/GermaniaKG/Base64Coder)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/GermaniaKG/Base64Coder/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/GermaniaKG/Base64Coder/?branch=master)
-[![Code Coverage](https://scrutinizer-ci.com/g/GermaniaKG/Base64Coder/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/GermaniaKG/Base64Coder/?branch=master)
-[![Build Status](https://scrutinizer-ci.com/g/GermaniaKG/Base64Coder/badges/build.png?b=master)](https://scrutinizer-ci.com/g/GermaniaKG/Base64Coder/build-status/master)
-
+[![Tests](https://github.com/VENDOR/PACKAGE/actions/workflows/tests.yml/badge.svg)](https://github.com/VENDOR/PACKAGE/actions/workflows/tests.yml)
 
 
 ## Installation with Composer

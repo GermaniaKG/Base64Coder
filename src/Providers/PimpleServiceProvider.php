@@ -35,7 +35,7 @@ class PimpleServiceProvider implements ServiceProviderInterface
     }
 
     /**
-     * @implements ServiceProviderInterface
+     * @implements \Pimple\ServiceProviderInterface
      */
     public function register(Container $dic)
     {
