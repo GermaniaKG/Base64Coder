@@ -57,4 +57,4 @@ config.json
 tests/build
 build
 phpunit.xml
-
+phpstan.neon
