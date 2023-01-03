@@ -2,9 +2,9 @@
 
 **Converts a *selector* and *token* pair to base64 forth and back.**
 
-[![Packagist](https://img.shields.io/packagist/v/germania-kg/base64-code.svg?style=flat)](https://packagist.org/packages/germania-kg/base64-code)
-[![PHP version](https://img.shields.io/packagist/php-v/germania-kg/base64-code.svg)](https://packagist.org/packages/germania-kg/base64-code)
-[![Tests](https://github.com/VENDOR/PACKAGE/actions/workflows/tests.yml/badge.svg)](https://github.com/VENDOR/PACKAGE/actions/workflows/tests.yml)
+[![Packagist](https://img.shields.io/packagist/v/germania-kg/base64-coder.svg?style=flat)](https://packagist.org/packages/germania-kg/base64-coder)
+[![PHP version](https://img.shields.io/packagist/php-v/germania-kg/base64-coder.svg)](https://packagist.org/packages/germania-kg/base64-coder)
+[![Tests](https://github.com/GermaniaKG/Base64Coder/actions/workflows/tests.yml/badge.svg)](https://github.com/GermaniaKG/Base64Coder/actions/workflows/tests.yml)
 
 
 ## Installation with Composer
