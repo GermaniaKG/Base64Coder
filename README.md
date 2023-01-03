@@ -10,7 +10,7 @@
 ## Installation with Composer
 
 ```bash
-$ composer require germania-kg/base64-code
+$ composer require germania-kg/base64-coder
 ```
 
 
